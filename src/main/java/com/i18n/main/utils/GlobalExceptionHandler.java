@@ -2,6 +2,8 @@ package com.i18n.main.utils;
 
 import com.i18n.main.utils.vo.ApiException;
 import com.i18n.main.utils.vo.ErrorVO;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.FieldError;
@@ -15,6 +17,9 @@ import java.util.stream.Collectors;
 
 @RestControllerAdvice
 public class GlobalExceptionHandler {
+
+    @Autowired
+    MessageSource messageSource;
 
     @ExceptionHandler(MethodArgumentNotValidException.class)
     public ResponseEntity<List<ErrorVO>> handleMethodArgsNotValidException(MethodArgumentNotValidException exception) {

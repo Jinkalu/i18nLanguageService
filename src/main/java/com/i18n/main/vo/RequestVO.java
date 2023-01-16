@@ -13,7 +13,7 @@ import javax.validation.constraints.NotNull;
 @AllArgsConstructor
 public class RequestVO {
 
-    @NotNull()
+    @NotNull(message = "{com.i18n.main.vo.username.NotNull.message}")
     private String username;
     private Boolean isMassage;
 }
